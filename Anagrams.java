@@ -49,11 +49,14 @@ public class Anagrams {
             }
         }
      // Extract all keys of HashMap/map
+        //we are checking for duplicates here with same length
+        //if there are two same chars in any string, then we can't find it while removing
+        //it from hash map
         Set<Character> keys = map.keySet();
         // Loop over all keys and check if all keys are 0.
         // If so it means it is anagram.
         for (Character key : keys) {
-        	System.out.println("Keys: "+key);
+        	System.out.print(key+" ");
             if (map.get(key) != 0) {
                 return false;
             }
@@ -67,11 +70,11 @@ public class Anagrams {
 	     
 	  // Function call
 	        if (isAnagram(str1, str2)) {
-	            System.out.print("The two strings are "
+	            System.out.print("\nThe two strings are "
 	                             + "anagram of each other");
 	        }
 	        else {
-	        	System.out.print("The two strings are "
+	        	System.out.print("\nThe two strings are "
                         + "not anagram of each other");
 	        }
 	}
