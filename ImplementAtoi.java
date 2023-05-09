@@ -1,4 +1,5 @@
-/*
+/*atoi means a to i => ascii to integer
+ * 
  * Link : https://www.geeksforgeeks.org/write-your-own-atoi/
  * Video : https://www.youtube.com/watch?v=2UeeIMo913U
  * Question : The atoi() function in C takes a string (which represents an integer)
