@@ -47,6 +47,7 @@ public class RomanToNumber {
 		    {		         
 		        // If present value is greater than next value,
 		        // add the resultant to the sum variable.
+		    	// XII = 10+1+1 =12
 		        if (i == n - 1 || roman.get(s.charAt(i)) >=
 		                          roman.get(s.charAt(i + 1)))
 		        {
@@ -58,6 +59,8 @@ public class RomanToNumber {
 		        	// If present value is less than next value,
 			        // subtract present from next value and add the
 			        // resultant to the sum variable.
+		        	
+		        	// IV = 5-1 = 4
 		           sum += roman.get(s.charAt(i + 1)) - roman.get(s.charAt(i));         
 		           i=i+2;
 		        }
@@ -67,7 +70,7 @@ public class RomanToNumber {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		String input = "III";
+		String input = "V";
 	     
 	    System.out.print("Integer form of Roman Numeral is " +
 	                     romanToInt(input));
