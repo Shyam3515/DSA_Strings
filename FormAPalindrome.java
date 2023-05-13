@@ -18,15 +18,12 @@ package strings;
 public class FormAPalindrome {
 	static String reverse(String s1) {
 		 String str=s1;
-			String[] words=str.split("//s");
-			String reverseword="";
-			
-			for(String w:words){ 
-				StringBuilder sb=new StringBuilder(w);
-			    sb.reverse(); 
-			    reverseword=reverseword+sb.toString()+" "; 
-			}
-		return reverseword;	
+		 String reverseword="";
+		 int length = str.length();
+		 for(int i=length-1;i>=0;i--) {
+			 reverseword += str.charAt(i);
+		 }
+		 return reverseword;	 
 	}
 	
 	static int palindromeForm(String s1,String s2,int n){
@@ -48,13 +45,11 @@ public class FormAPalindrome {
 		return dptable[n][n];	
 	}
 	public static void main(String[] args) {
-	String s1="aasjkbdfk";
-	int n=s1.length();
+	String s1="geeks";
+	int len=s1.length();
 	String s2=reverse(s1);
-	System.out.println(s2);
-	int pal=palindromeForm(s1,s2,n);
-	//System.out.println("No. of insertions  are: "+(pal));
-	System.out.println("No. of insertions required are: "+(n-pal));
+	int pal=palindromeForm(s1,s2,len);
+	System.out.println("No. of insertions required are: "+(len-pal));
 	}
 
 }
