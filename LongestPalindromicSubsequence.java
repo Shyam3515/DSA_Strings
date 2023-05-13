@@ -1,19 +1,18 @@
 /*
+ * Code with Alisha
  * Link:https://www.youtube.com/watch?v=fxwvVnBMN6I
+ * 
+ * Time complexity: O(N2). A nested traversal is needed.
+   Auxiliary Space: O(N2). A matrix of size N*N is needed to store the table.
  */
 package strings;
 
 public class LongestPalindromicSubsequence {
-	static void printSubStr(String str, int low, int high)     
-	    {
-	        System.out.println(str.substring(low, high + 1));    
-	    }	
 	
 	static int LPS(String s, int n) {
 		int dp[][]=new int[n][n];
 		
 		int maxlength=0;
-		//String ans = "";
 		int start=0;
 		for(int diff = 0;diff<n;diff++) {
 	            for(int i=0,j=i+diff; j<n; i++, j++)
@@ -34,28 +33,27 @@ public class LongestPalindromicSubsequence {
 	                {
 	                    if(s.charAt(i)==s.charAt(j) && dp[i+1][j-1]>0) {
 	                        dp[i][j] = dp[i+1][j-1]+2; 
-	                        //System.out.println(dp[i][j]);
-	                        
-		                    if(j-i+1>maxlength) {		                    	
-		                        maxlength = j-i+1;
-		                        start=i;
-		                        System.out.println("max3:"+maxlength+" i: "+i+" j: "+j);
-		                        //ans = s.substring(i,maxlength);
-		                        }
-	                    } 
-	                }	                
+	                    }
+	                }
+	                     
+	                if(dp[i][j]>0) {
+	                	if(j-i+1>maxlength) {		                    	
+	                        maxlength = j-i+1;
+	                        start=i;
+	                        System.out.println("max3:"+maxlength+" i: "+i+" j: "+j);	                   
+	                     }
+	                }           	                
 	           } 
 	    }
-		System.out.print("Longest palindrome substring is: ");
-		 printSubStr(s, start,
-                 start + maxlength - 1);
-		//System.out.println("Ans: "+ans);
+		System.out.println("Longest palindrome substring is from index: "
+				+start+" to " +(start + maxlength - 1));
+		 
 	    return maxlength;
 	}
 	
 	public static void main(String[] args) {
-		String s="cabbacaacbabaca";
+		String s="cabbacacccacbabaca";
 		int n=s.length();
-		System.out.println("Length is: " +LPS(s,n));
+		System.out.println("Length of LPS is: " +LPS(s,n));
 	}
 }
