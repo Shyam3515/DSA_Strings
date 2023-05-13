@@ -25,17 +25,10 @@ public class RemovingDuplicate {
 	static String method2() {
 		 String s = "geeksforgeeks";
 		 String str = new String();
-		 //String str = "";
         int len = s.length();
-         
-        /*loop to traverse the string and
-          check for repeating chars using
-          IndexOf() method in Java
-         */
         
         for (int i = 0; i < len; i++)
         {
-            // character at i'th index of s
             char c = s.charAt(i);          
             System.out.println("c : "+c);   
            /* if c is present in str, it returns
@@ -44,7 +37,6 @@ public class RemovingDuplicate {
            System.out.println("str:"+str.indexOf(c));
             if (str.indexOf(c) < 0)
             {
-            	//System.out.println("str:"+str.indexOf(c));
                 /* adding c to str if -1 is returned */
                 str += c;
             }
@@ -79,15 +71,15 @@ public class RemovingDuplicate {
 			}
 			else {
 				map.put(str.charAt(i), 1);
-				//s1+=str.charAt(i);
+				s1+=str.charAt(i);
 			}
 		}
 		System.out.println(map);
-		Set<Character> keys = map.keySet();
-		for(Character ch : keys) {
-			if(map.get(ch)==1)
-				s1+=ch;
-		}
+//		Set<Character> keys = map.keySet();
+//		for(Character ch : keys) {
+//			if(map.get(ch)==1)
+//				s1+=ch;
+//		}
 		return s1;
 	}
 
