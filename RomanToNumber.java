@@ -41,14 +41,18 @@ public class RomanToNumber {
 			}};
 			
 		    int sum = 0;
+		    // we are not giving n-1 here, bcz if length is 1, then n-1 = 0.
+		    // So, if n==0 then it wont enter the for loop...
 		    int n = s.length();
 		    
 		    for(int i = 0; i < n;)
 		    {		         
+		    	// When i equals the length of string or
 		        // If present value is greater than next value,
 		        // add the resultant to the sum variable.
 		    	// XII = 10+1+1 =12
-		        if (i == n - 1 || roman.get(s.charAt(i)) >=
+		    	
+		        if (i == n-1 || roman.get(s.charAt(i)) >=
 		                          roman.get(s.charAt(i + 1)))
 		        {
 		        	sum += roman.get(s.charAt(i));
@@ -61,7 +65,10 @@ public class RomanToNumber {
 			        // resultant to the sum variable.
 		        	
 		        	// IV = 5-1 = 4
-		           sum += roman.get(s.charAt(i + 1)) - roman.get(s.charAt(i));         
+		        	// XLIX = (50-10) + (10-1) = 40 + 9 = 49.
+		           sum += roman.get(s.charAt(i + 1)) - roman.get(s.charAt(i));  
+		           // I increments two times bcz, when subtracted we are considering 
+		           // the next value so we are moving forward by two steps.
 		           i=i+2;
 		        }
 		    }
