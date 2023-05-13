@@ -27,6 +27,8 @@ public class FormAPalindrome {
 	}
 	
 	static int palindromeForm(String s1,String s2,int n){
+		//as length is n we need to take dptable to size n+1.
+		//So it will be of size n.
 		int dptable[][]=new int[n+1][n+1];//dptable
 		for(int i=0;i<=n;i++) {
 			for(int j=0;j<=n;j++) {
@@ -47,6 +49,7 @@ public class FormAPalindrome {
 	public static void main(String[] args) {
 	String s1="geeks";
 	int len=s1.length();
+	System.out.println(len);
 	String s2=reverse(s1);
 	int pal=palindromeForm(s1,s2,len);
 	System.out.println("No. of insertions required are: "+(len-pal));
