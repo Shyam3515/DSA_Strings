@@ -22,8 +22,8 @@ public class RotateBy2 {
 		}
 		
 		//Clock-wise rotation of String s1 by 2 positions.
-		String s3=s1.substring(val,len);//First Four values => AMAZ
-		s3=s3+s1.substring(0,val); // last Two => ON
+		String s3=s1.substring(val,len);//Last Four values => AZON
+		s3=s3+s1.substring(0,val); // First Two => AM
 		System.out.println(s3);
 		//Anti Clock-wise rotation of String s1 by 2 positions.
 		String s4=s1.substring(len-val,len);//Last two values => ON
