@@ -26,7 +26,6 @@ public class LongestPalindromicSubsequence {
 	                else if(diff==1 && s.charAt(i)==s.charAt(j)){ 	                
 		                        dp[i][j]=(s.charAt(i)==s.charAt(j))?2:0;
 		                        maxlength=2;
-		                        start=i;
 		                        System.out.println("max2:"+maxlength);	                	
 	                }
 	                else 
@@ -52,7 +51,7 @@ public class LongestPalindromicSubsequence {
 	}
 	
 	public static void main(String[] args) {
-		String s="cabbacacccacbabaca";
+		String s="cabacaccacbabaca";
 		int n=s.length();
 		System.out.println("Length of LPS is: " +LPS(s,n));
 	}
