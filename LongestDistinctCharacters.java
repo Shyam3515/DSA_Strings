@@ -17,7 +17,6 @@
  */
 package strings;
 
-
 public class LongestDistinctCharacters {
 	
 	static String final_str;
@@ -34,15 +33,17 @@ public class LongestDistinctCharacters {
         }
         // Return one if string length is one
         else if (str.length() == 1) {
+        	final_str = str;
             return 1;
         }
         for (char c : str.toCharArray()) {
             String current = String.valueOf(c);
+            
             // If string already contains the character
             // Then substring after repeating character
-            
             if (test.contains(current)) {        	 
             	//actually we are getting test.length() after substringing it.
+            	//it removes till the given index value
                 test = test.substring(test.indexOf(current) + 1);                                 
                 System.out.println("Test: "+test);              
             } 
@@ -53,16 +54,13 @@ public class LongestDistinctCharacters {
             }
             System.out.println("Final Test: "+test);          
         }
- 
         return maxLength;
     }
  
     // Driver code
     public static void main(String[] args)
     {
-        String str = "shyam";
-        System.out.println("The input string is: " + str);
- 
+        String str = "sshyam";
         int len = longestUniqueSubsttr(str);
         System.out.println("The length of the longest non-repeating character substring is: " + len);                                         
         System.out.println("Final String: "+final_str);
