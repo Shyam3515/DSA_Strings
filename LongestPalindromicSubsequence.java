@@ -46,12 +46,13 @@ public class LongestPalindromicSubsequence {
 	    }
 		System.out.println("Longest palindrome substring is from index: "
 				+start+" to " +(start + maxlength - 1));
+		System.out.println("The String is: "+ s.substring(start,start + maxlength));
 		 
 	    return maxlength;
 	}
 	
 	public static void main(String[] args) {
-		String s="cabacaccacbabaca";
+		String s="cabacaccbacabaca";
 		int n=s.length();
 		System.out.println("Length of LPS is: " +LPS(s,n));
 	}
