@@ -20,10 +20,11 @@ package strings;
 public class KMPSublistSearch {
 	static void KMPSearch(String text,String pattern,int M,int N) {
 		int j=0;// index for pat[]
-		// create lps[] that will hold the longest
-        // prefix suffix values for pattern
-		// Preprocess the pattern (calculate lps[]
-        // array
+		// create lps[] that will hold the longestPrefixSuffix[lps] values for pattern
+		// Preprocess the pattern (calculate lps[]) array. Use of this array lps is
+		// no need to start pattern from start if there is any prefix and suffix in pattern
+		// You can directly start from the prefix from next iteration, if there is no match..
+        
 		int lpsArr[]=computelps(pattern,M);
 		int i=0;// index for txt[]
 		int flag=0;
@@ -31,10 +32,13 @@ public class KMPSublistSearch {
 			if(pattern.charAt(j)==text.charAt(i)) {
 				i++;
 				j++;
-			}
-			else {
-				if(j!=0) {  //if not matches and j!=0 
-					j=lpsArr[j-1]; //Setting j=0, starting from first.			
+			}     
+			else {  
+				if(j!=0) {  //if no matches found and j!=0 
+					//if there is any prefix or suffix in previous value,that will be assigned to j.
+					// otherwise as previous value will be Zero, j will be zero...
+					j=lpsArr[j-1]; 	
+					System.out.println("After: "+j);
 				}
 				else //if j=0,increment i.
 					i=i+1;
@@ -43,7 +47,7 @@ public class KMPSublistSearch {
 				//i-j, bcz we need to get starting index of pattern
 				//while iterating as i moves to end of text, we should subtract it.
 				System.out.println("The index is at: "+(i-j));
-				j=lpsArr[j-1];//reset to zero after completion
+				j=lpsArr[j-1]; //going back to previous value in array...
 				flag=1;
 			}
 		}
@@ -60,30 +64,34 @@ public class KMPSublistSearch {
 		lps[0]=0;// lps[0] is always 0
         // the loop calculates lps[i] for i = 1 to M-1
 		
-		while(j<M) { //CABCABDABAC
+		while(j<M) { //onions
 			if(pattern.charAt(i)==pattern.charAt(j)) {
 				i++; 
 				lps[j]=i;
 				j++;
+				 //these print lines are to find how many iterations it takes
+
 			}
-			else{ // 0 0 0 1 2 3 0 0 0 0 1
+			else{ 
 				lps[j]=0; //if char not matches set it to zero;
 				i=0; // After setting to zero ,we are making i as 0, 
 				j++;
+
 				// Actually this both methods give same answer...
+				//but first one takes less iterations...
 				
-			/*
-			  if (i != 0) { // 0 0 0 1 2 3 0 0 0 0 1
-                    i = lps[i - 1];
-                    // Also, note that we do not increment
-                    // i here
-                }
-                else // if (len == 0)
-                {
-                    lps[j] = i;
-                    j++;
-                }
-               */
+//			  if (i != 0) {
+//                    i = lps[i - 1];
+//                    // Also, note that we do not increment
+//                    // i here
+//                    System.out.println("3");
+//                }
+//                else // if (len == 0)
+//                {
+//                    lps[j] = i;
+//                    j++;
+//                    System.out.println("4");
+//                } 
 			}
 		}
 		System.out.print("LPS Array: ");
@@ -97,8 +105,8 @@ public class KMPSublistSearch {
 	public static void main(String[] args) {
 		 //String text="abcabxsergyeryreyabcaby";
 		 //String pattern="abcaby";
-		 String text = "GeeksForGeeks";
-	     String pattern = "For";
+		 String text = "onionionspl";
+	     String pattern = "onions";
 		 int M=pattern.length();
 		 int N=text.length();
 		 //(new KMPSublistSearch()).KMPSearch(text,pattern,M,N);	
