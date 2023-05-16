@@ -38,7 +38,7 @@ public class Permutations {
 	{
 		//Prints the permutations 
 		if (l==end) {					
-			System.out.println(str);
+			System.out.println("Permuted String: "+str);
 			c=c+1;	
 		}
 			
@@ -58,6 +58,9 @@ public class Permutations {
 	String swap(String str,int i,int j) {
 		char temp;
 		char[] charArray = str.toCharArray();
+		//With this step you can see the flow of operations
+		System.out.print(charArray);
+		System.out.println(" => ("+i+","+j+")");
 		temp = charArray[i] ;
 		charArray[i] = charArray[j];
 		charArray[j] = temp;
